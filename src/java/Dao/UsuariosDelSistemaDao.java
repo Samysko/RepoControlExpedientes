@@ -5,6 +5,9 @@
  */
 package Dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
@@ -15,8 +18,32 @@ public class UsuariosDelSistemaDao implements Dao{
 
     @Override
     public ArrayList consulta() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        ArrayList lista=null;
+        try
+        {
+            Connection c=new DataSource().getConexion();
+            String sql="select * from usuariosdelsistema";
+            PreparedStatement ps=c.prepareStatement(sql);
+            ResultSet r=ps.executeQuery();
+            lista=new ArrayList();
+            while(r.next())
+            {
+                UsuariosDelSistema usuario=new UsuariosDelSistema();
+                usuario.setUsuario(r.getInt("usuario"));
+                usuario.setContraseña(r.getString("contraseña"));
+                lista.add(usuario);
+            }
+            r.close();
+            ps.close();
+            c.close();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return lista;
+    
+    }    
 
     @Override
     public boolean alta(Object o) {
