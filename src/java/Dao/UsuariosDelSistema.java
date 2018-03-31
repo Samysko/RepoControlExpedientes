@@ -10,16 +10,18 @@ package Dao;
  * @author TechM User
  */
 public class UsuariosDelSistema {
-    int usuario;
-    String contraseña;
+    private String idusuariosdelsistema;
+    private String contraseña;
 
-    public int getUsuario() {
-        return usuario;
+    public String getIdusuariosdelsistema() {
+        return idusuariosdelsistema;
     }
 
-    public void setUsuario(int usuario) {
-        this.usuario = usuario;
+    public void setIdusuariosdelsistema(String idusuariosdelsistema) {
+        this.idusuariosdelsistema = idusuariosdelsistema;
     }
+
+
 
     public String getContraseña() {
         return contraseña;

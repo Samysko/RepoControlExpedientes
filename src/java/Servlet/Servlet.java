@@ -38,7 +38,7 @@ public class Servlet extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("estas dentro de processrequest");
+        System.out.println("Estas dentro de proces srequest");
         String pagina=request.getParameter("pagina");
         if(pagina.equals("login")){
             login(request, response);
@@ -88,7 +88,7 @@ public class Servlet extends HttpServlet {
     private void login(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException{
         
-        System.out.println("hola estas dentro");
+        System.out.println("Estas dentro de login");
         response.setContentType("text/html");
         
         try {
@@ -96,18 +96,23 @@ public class Servlet extends HttpServlet {
             
             boolean flag = false;
 
-            int usuario = Integer.parseInt(request.getParameter("usuario"));
-            String contraseña = request.getParameter("contraseña");
+            String usuario = request.getParameter("usuario");
+            String contraseña = request.getParameter("contrasena");
+            System.out.println(usuario + " " + contraseña + " usuario y contraseña recibidos de pagina");
 
             UsuariosDelSistemaDao usudao = new UsuariosDelSistemaDao();
 
             ArrayList<UsuariosDelSistema> listausuarios = usudao.consulta();
 
             for (UsuariosDelSistema usu : listausuarios) {
-                if(usu.getUsuario()== usuario && usu.getContraseña() == contraseña){
-                    response.sendRedirect("index.html");
+                System.out.println("Usuario y contraseña a comparar = " + 
+                        usu.getIdusuariosdelsistema()+ " " + usu.getContraseña());
+                
+                if(usu.getIdusuariosdelsistema().equals(usuario) && usu.getContraseña().equals(contraseña)){
+                    response.sendRedirect("pages/index.html");
                     flag = true;
                 }
+                
             }
 
             if(flag == false){
