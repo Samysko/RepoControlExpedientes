@@ -5,8 +5,7 @@
  */
 package Dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.*;
 
 /**
  *
@@ -14,10 +13,11 @@ import java.sql.DriverManager;
  */
 public class DataSource {
         public Connection getConexion(){
-        Connection c=null;
+            System.out.println("obteniendoconexion");
+            Connection c=null;
             try{
                 Class.forName("com.mysql.jdbc.Driver");
-                c=DriverManager.getConnection("jdbc:mysql://localhost:3306/javaDB","root","unitec");
+                c=DriverManager.getConnection("jdbc:mysql://localhost:3306/javadb","root","root");
             }
             catch(Exception e){
                 e.printStackTrace();

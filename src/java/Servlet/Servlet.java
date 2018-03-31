@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Dao.*;
 import java.util.*;
+import javax.xml.ws.http.HTTPException;
 
 /**
  *
@@ -37,6 +38,7 @@ public class Servlet extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("estas dentro de processrequest");
         String pagina=request.getParameter("pagina");
         if(pagina.equals("login")){
             login(request, response);
@@ -83,8 +85,10 @@ public class Servlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void login(HttpServletRequest request, HttpServletResponse response) {
+    private void login(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException{
         
+        System.out.println("hola estas dentro");
         response.setContentType("text/html");
         
         try {
