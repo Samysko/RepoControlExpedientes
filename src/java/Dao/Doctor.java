@@ -10,7 +10,65 @@ package Dao;
  * @author TechM User
  */
 public class Doctor {
-    int doctorid, hospitalid;
-    float salario;
-    String titulo, nombre, apellidopaterno, apellidomaterno;
+    private int iddoctor, idhospital;
+    private float salario;
+    private String titulo, nombre, apellidopaterno, apellidomaterno;
+
+    public int getIddoctor() {
+        return iddoctor;
+    }
+
+    public void setIddoctor(int iddoctor) {
+        this.iddoctor = iddoctor;
+    }
+
+    public int getIdhospital() {
+        return idhospital;
+    }
+
+    public void setIdhospital(int idhospital) {
+        this.idhospital = idhospital;
+    }
+
+    public float getSalario() {
+        return salario;
+    }
+
+    public void setSalario(float salario) {
+        this.salario = salario;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidopaterno() {
+        return apellidopaterno;
+    }
+
+    public void setApellidopaterno(String apellidopaterno) {
+        this.apellidopaterno = apellidopaterno;
+    }
+
+    public String getApellidomaterno() {
+        return apellidomaterno;
+    }
+
+    public void setApellidomaterno(String apellidomaterno) {
+        this.apellidomaterno = apellidomaterno;
+    }
+    
+    
 }

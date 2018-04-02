@@ -10,6 +10,56 @@ package Dao;
  * @author TechM User
  */
 public class ExpedienteClinico {
-    int expedienteclinicoid, pacienteid, doctorid, hospitalid;
-    String fechadeexaminacion, diagnosticomedico;
+    private int idexpedienteclinicoid, idpaciente, iddoctor, idhospital;
+    private String fechadeexaminacion, diagnosticomedico;
+
+    public int getIdexpedienteclinicoid() {
+        return idexpedienteclinicoid;
+    }
+
+    public void setIdexpedienteclinicoid(int idexpedienteclinicoid) {
+        this.idexpedienteclinicoid = idexpedienteclinicoid;
+    }
+
+    public int getIdpaciente() {
+        return idpaciente;
+    }
+
+    public void setIdpaciente(int idpaciente) {
+        this.idpaciente = idpaciente;
+    }
+
+    public int getIddoctor() {
+        return iddoctor;
+    }
+
+    public void setIddoctor(int iddoctor) {
+        this.iddoctor = iddoctor;
+    }
+
+    public int getIdhospital() {
+        return idhospital;
+    }
+
+    public void setIdhospital(int idhospital) {
+        this.idhospital = idhospital;
+    }
+
+    public String getFechadeexaminacion() {
+        return fechadeexaminacion;
+    }
+
+    public void setFechadeexaminacion(String fechadeexaminacion) {
+        this.fechadeexaminacion = fechadeexaminacion;
+    }
+
+    public String getDiagnosticomedico() {
+        return diagnosticomedico;
+    }
+
+    public void setDiagnosticomedico(String diagnosticomedico) {
+        this.diagnosticomedico = diagnosticomedico;
+    }
+    
+    
 }

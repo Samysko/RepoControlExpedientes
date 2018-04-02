@@ -10,6 +10,33 @@ package Dao;
  * @author TechM User
  */
 public class Hospital {
-    int hospitalid;
-    String nombre, direccion;
+    private int idhospital;
+    private String nombre, direccion;
+
+    public int getIdhospital() {
+        return idhospital;
+    }
+
+    public void setIdhospital(int idhospital) {
+        this.idhospital = idhospital;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+    
+    
+    
 }

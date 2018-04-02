@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Dao;
+package CustomTags;
 
 /**
  *
  * @author TechM User
  */
-public class Consulta {
-    int consultaid, hospitalid, pacienteid, doctorid;
-    String fechacita, diagnostico;
+public class ConsultaPaciente {
+    
 }
