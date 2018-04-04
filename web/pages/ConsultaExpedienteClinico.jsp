@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ConsultaDoctor
-    Created on : 1/04/2018, 09:30:53 PM
+    Document   : ConsultaExpedienteClinico
+    Created on : 3/04/2018, 10:40:57 PM
     Author     : TechM User
 --%>
 
@@ -43,7 +43,7 @@
 </head>
 
 <body>
-    <%@taglib uri="/WEB-INF/tld/ConsultaDoctor" prefix="c" %>
+    <%@taglib uri="/WEB-INF/tld/ConsultaExpedienteClinico" prefix="c" %>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -133,7 +133,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Consulta doctores</h1>
+                    <h1 class="page-header">Consulta Expedientes Clinico</h1>
                 </div>
                 <!-- /#tabla -->
                 <div>
@@ -149,16 +149,15 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Nombre</th>
-                                                <th>Ap. Paterno</th>
-                                                <th>Ap. Materno</th>
-                                                <th>Título</th>
-                                                <th>Salario</th>
-                                                <th>Hospital</th>
+                                                <th>Paciente</th>
+                                                <th>Doctor</th>
+                                                <th>Hopital</th>
+                                                <th>Fecha</th>
+                                                <th>Diagnostico</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:ConsultaDoctor/>
+                                            <c:ConsultaExpedienteClinico/>
                                         </tbody>
                                     </table>
                                 </div>

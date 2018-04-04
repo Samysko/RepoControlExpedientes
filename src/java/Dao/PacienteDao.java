@@ -5,6 +5,9 @@
  */
 package Dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
@@ -15,7 +18,35 @@ public class PacienteDao implements Dao{
 
     @Override
     public ArrayList consulta() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            ArrayList lista=null;
+        try
+        {
+            Connection c=new DataSource().getConexion();
+            String sql="select * from paciente";
+            PreparedStatement ps=c.prepareStatement(sql);
+            ResultSet r=ps.executeQuery();
+            lista=new ArrayList();
+            while(r.next())
+            {
+                Paciente paciente = new Paciente();
+                paciente.setIdpaciente(r.getInt("idpaciente"));
+                paciente.setNombre(r.getString("nombre"));
+                paciente.setApellidopaterno(r.getString("apellidopaterno"));
+                paciente.setApellidomaterno(r.getString("apellidomaterno"));
+                paciente.setEdad(r.getInt("edad"));
+                paciente.setDireccion(r.getString("direccion"));
+                paciente.setPeso(r.getFloat("peso"));
+                lista.add(paciente);
+            }
+            r.close();
+            ps.close();
+            c.close();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return lista;
     }
 
     @Override

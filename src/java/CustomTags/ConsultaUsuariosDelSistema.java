@@ -5,7 +5,10 @@
  */
 package CustomTags;
 
-import Dao.*;
+import Dao.Paciente;
+import Dao.PacienteDao;
+import Dao.UsuariosDelSistema;
+import Dao.UsuariosDelSistemaDao;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -15,37 +18,31 @@ import javax.servlet.jsp.JspWriter;
 import static javax.servlet.jsp.tagext.Tag.SKIP_BODY;
 import javax.servlet.jsp.tagext.TagSupport;
 
-
 /**
  *
  * @author TechM User
  */
-public class ConsultaPaciente extends TagSupport{
-    ArrayList<Paciente> listapaciente;
+public class ConsultaUsuariosDelSistema extends TagSupport{
+    ArrayList<UsuariosDelSistema> listausuariosdelsistema;
     @Override
     public int doStartTag() throws JspException {
-        System.out.println("estas dentro dostartag de consultapaciente");
+        System.out.println("estas dentro dostartag de consultaususariosdelsistema");
         
-        PacienteDao pd = new PacienteDao();
+        UsuariosDelSistemaDao udsd = new UsuariosDelSistemaDao();
         
-        listapaciente = pd.consulta();//aqui te quedaste
+        listausuariosdelsistema = udsd.consulta();//aqui te quedaste
         
         JspWriter out=pageContext.getOut();
         
-        if(listapaciente.isEmpty()){
-            System.out.println("No hay Pacientes");
+        if(listausuariosdelsistema.isEmpty()){
+            System.out.println("No hay usuarios del sistema");
         }else{
-            for (Paciente paciente : listapaciente) {
-                System.out.println(paciente.getNombre());
+            for (UsuariosDelSistema usuariosdelsistema : listausuariosdelsistema) {
+                System.out.println(usuariosdelsistema.getIdusuariosdelsistema());
                 try {
                     out.println("<tr>");
-                    out.println("<td>" + paciente.getIdpaciente()+ "</td>");
-                    out.println("<td>" + paciente.getNombre()+ "</td>");
-                    out.println("<td>" + paciente.getApellidopaterno()+ "</td>");
-                    out.println("<td>" + paciente.getApellidomaterno()+ "</td>");
-                    out.println("<td>" + paciente.getDireccion()+ "</td>");
-                    out.println("<td>" + paciente.getEdad()+ "</td>");
-                    out.println("<td>" + paciente.getPeso()+ "</td>");
+                    out.println("<td>" + usuariosdelsistema.getIdusuariosdelsistema()+ "</td>");
+                    out.println("<td>" + usuariosdelsistema.getContraseña()+ "</td>");
                     out.println("</tr>");
     //            <tr>
     //                <td>1</td>

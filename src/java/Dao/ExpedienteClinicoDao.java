@@ -5,6 +5,9 @@
  */
 package Dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
@@ -15,7 +18,38 @@ public class ExpedienteClinicoDao implements Dao{
 
     @Override
     public ArrayList consulta() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            ArrayList lista=null;
+        try
+        {
+            Connection c=new DataSource().getConexion();
+            String sql="select ec.idpaciente, ec.diagnosticomedico, ec.fechadeexaminacion, "
+                    + "ec.iddoctor, ec.idhospital, ec.idexpedienteclinico from expedienteclinico ec "
+                    + "join paciente p on ec.idpaciente = p.idpaciente "
+                    + "join doctor d on d.iddoctor = ec.iddoctor "
+                    + "join hospital h on h.idhospital = ec.idhospital";
+            PreparedStatement ps=c.prepareStatement(sql);
+            ResultSet r=ps.executeQuery();
+            lista=new ArrayList();
+            while(r.next())
+            {
+                ExpedienteClinico expedienteclinico = new ExpedienteClinico();
+                expedienteclinico.setIdpaciente(r.getInt("idpaciente"));
+                expedienteclinico.setDiagnosticomedico(r.getString("diagnosticomedico"));
+                expedienteclinico.setFechadeexaminacion(r.getString("fechadeexaminacion"));
+                expedienteclinico.setIddoctor(r.getInt("iddoctor"));
+                expedienteclinico.setIdhospital(r.getInt("idhospital"));
+                expedienteclinico.setIdexpedienteclinico(r.getInt("idexpedienteclinico"));
+                lista.add(expedienteclinico);
+            }
+            r.close();
+            ps.close();
+            c.close();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return lista;
     }
 
     @Override

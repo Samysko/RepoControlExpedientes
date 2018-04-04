@@ -5,6 +5,9 @@
  */
 package Dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
@@ -15,7 +18,31 @@ public class HospitalDao implements Dao{
 
     @Override
     public ArrayList consulta() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList lista=null;
+        try
+        {
+            Connection c=new DataSource().getConexion();
+            String sql="select * from hospital";
+            PreparedStatement ps=c.prepareStatement(sql);
+            ResultSet r=ps.executeQuery();
+            lista=new ArrayList();
+            while(r.next())
+            {
+                Hospital hospital = new Hospital();
+                hospital.setIdhospital(r.getInt("idhospital"));
+                hospital.setNombre(r.getString("nombre"));
+                hospital.setDireccion(r.getString("direccion"));
+                lista.add(hospital);
+            }
+            r.close();
+            ps.close();
+            c.close();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return lista;
     }
 
     @Override

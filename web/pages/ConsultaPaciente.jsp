@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ConsultaDoctor
-    Created on : 1/04/2018, 09:30:53 PM
+    Document   : ConsultaPaciente
+    Created on : 3/04/2018, 09:58:26 PM
     Author     : TechM User
 --%>
 
@@ -43,7 +43,7 @@
 </head>
 
 <body>
-    <%@taglib uri="/WEB-INF/tld/ConsultaDoctor" prefix="c" %>
+    <%@taglib uri="/WEB-INF/tld/ConsultaPaciente" prefix="c" %>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -133,14 +133,14 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Consulta doctores</h1>
+                    <h1 class="page-header">Consulta pacientes</h1>
                 </div>
                 <!-- /#tabla -->
                 <div>
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Doctor
+                                Paciente
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
@@ -150,15 +150,15 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Nombre</th>
-                                                <th>Ap. Paterno</th>
-                                                <th>Ap. Materno</th>
-                                                <th>Título</th>
-                                                <th>Salario</th>
-                                                <th>Hospital</th>
+                                                <th>Apellido Paterno</th>
+                                                <th>Apellido Materno</th>
+                                                <th>Dirección</th>
+                                                <th>Edad</th>
+                                                <th>Peso</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:ConsultaDoctor/>
+                                            <c:ConsultaPaciente/>
                                         </tbody>
                                     </table>
                                 </div>

@@ -10,15 +10,15 @@ package Dao;
  * @author TechM User
  */
 public class ExpedienteClinico {
-    private int idexpedienteclinicoid, idpaciente, iddoctor, idhospital;
+    private int idexpedienteclinico, idpaciente, iddoctor, idhospital;
     private String fechadeexaminacion, diagnosticomedico;
 
-    public int getIdexpedienteclinicoid() {
-        return idexpedienteclinicoid;
+    public int getIdexpedienteclinico() {
+        return idexpedienteclinico;
     }
 
-    public void setIdexpedienteclinicoid(int idexpedienteclinicoid) {
-        this.idexpedienteclinicoid = idexpedienteclinicoid;
+    public void setIdexpedienteclinico(int idexpedienteclinicoid) {
+        this.idexpedienteclinico = idexpedienteclinicoid;
     }
 
     public int getIdpaciente() {

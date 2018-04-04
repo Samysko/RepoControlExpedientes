@@ -29,8 +29,10 @@ public class UsuariosDelSistemaDao implements Dao{
             while(r.next())
             {
                 UsuariosDelSistema usuario=new UsuariosDelSistema();
+                
                 usuario.setIdusuariosdelsistema(r.getString("idusuariosdelsistema"));
                 usuario.setContraseña(r.getString("contraseña"));
+                
                 lista.add(usuario);
             }
             r.close();

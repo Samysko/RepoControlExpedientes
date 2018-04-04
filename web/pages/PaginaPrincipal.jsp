@@ -16,7 +16,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Control Expedientes</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -82,22 +82,19 @@
                             <a href="#"><i class="fa fa-table fa-fw"></i> Consulta<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html"> Usuario del sistema</a>
+                                    <a href="ConsultaUsuariosDelSistema.jsp"> Usuario del sistema</a>
                                 </li>
                                 <li>
-                                    <a href="buttons.html"> Paciente</a>
+                                    <a href="ConsultaPaciente.jsp"> Paciente</a>
                                 </li>
                                 <li>
-                                    <a href="notifications.html"> Hospital</a>
+                                    <a href="ConsultaHospital.jsp"> Hospital</a>
                                 </li>
                                 <li>
                                     <a href="ConsultaDoctor.jsp"> Doctor</a>
                                 </li>
                                 <li>
-                                    <a href="icons.html"> Consulta</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html"> Expediente clíinico</a>
+                                    <a href="ConsultaExpedienteClinico.jsp"> Expediente clíinico</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

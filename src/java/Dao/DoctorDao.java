@@ -22,10 +22,7 @@ public class DoctorDao implements Dao{
         try
         {
             Connection c=new DataSource().getConexion();
-            String sql="select d.iddoctor, d.nombre, d.salario, d.apellidomaterno, "
-                    + "d.apellidopaterno, d.titulo, d.idhospital "
-                    + "from doctor d "
-                    + "join hospital h on d.idhospital = h.idhospital";
+            String sql="select * from doctor";
             PreparedStatement ps=c.prepareStatement(sql);
             ResultSet r=ps.executeQuery();
             lista=new ArrayList();
