@@ -11,10 +11,34 @@ package Dao;
  */
 public class ExpedienteClinico {
     private int idexpedienteclinico, idpaciente, iddoctor, idhospital;
-    private String fechadeexaminacion, diagnosticomedico;
+    private String fechadeexaminacion, diagnosticomedico, nombrepaciente, nombredoctor, nombrehospital;
 
     public int getIdexpedienteclinico() {
         return idexpedienteclinico;
+    }
+
+    public String getNombrepaciente() {
+        return nombrepaciente;
+    }
+
+    public void setNombrepaciente(String nombrepaciente) {
+        this.nombrepaciente = nombrepaciente;
+    }
+
+    public String getNombredoctor() {
+        return nombredoctor;
+    }
+
+    public void setNombredoctor(String nombredoctor) {
+        this.nombredoctor = nombredoctor;
+    }
+
+    public String getNombrehospital() {
+        return nombrehospital;
+    }
+
+    public void setNombrehospital(String nombrehospital) {
+        this.nombrehospital = nombrehospital;
     }
 
     public void setIdexpedienteclinico(int idexpedienteclinicoid) {

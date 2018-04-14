@@ -39,9 +39,9 @@ public class ConsultaExpedienteClinico extends TagSupport{
                 try {
                     out.println("<tr>");
                     out.println("<td>" + expedienteclinico.getIdexpedienteclinico()+ "</td>");
-                    out.println("<td>" + expedienteclinico.getIdpaciente()+ "</td>");
-                    out.println("<td>" + expedienteclinico.getIddoctor()+ "</td>");
-                    out.println("<td>" + expedienteclinico.getIdhospital()+ "</td>");
+                    out.println("<td>" + expedienteclinico.getNombrepaciente()+ "</td>");
+                    out.println("<td>" + expedienteclinico.getNombredoctor()+ "</td>");
+                    out.println("<td>" + expedienteclinico.getNombrehospital()+ "</td>");
                     out.println("<td>" + expedienteclinico.getFechadeexaminacion()+ "</td>");
                     out.println("<td>" + expedienteclinico.getDiagnosticomedico()+ "</td>");
                     out.println("</tr>");

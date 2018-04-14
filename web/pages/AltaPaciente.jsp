@@ -1,6 +1,6 @@
 <%-- 
-    Document   : PaginaPrincipal
-    Created on : 31/03/2018, 02:53:06 PM
+    Document   : AltaPaciente
+    Created on : 9/04/2018, 06:24:41 PM
     Author     : TechM User
 --%>
 
@@ -9,7 +9,6 @@
 <html lang="es">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,7 +42,7 @@
 </head>
 
 <body>
-
+    <%@taglib uri="/WEB-INF/tld/ConsultaPaciente" prefix="c" %>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -106,13 +105,13 @@
                                     <a href="panels-wells.html"> Usuario del sistema</a>
                                 </li>
                                 <li>
-                                    <a href="AltaPaciente.jsp"> Paciente</a>
+                                    <a href="buttons.html"> Paciente</a>
                                 </li>
                                 <li>
                                     <a href="notifications.html"> Hospital</a>
                                 </li>
                                 <li>
-                                    <a href="AltaDoctor.jsp"> Doctor</a>
+                                    <a href="CnsultaDoctor.jsp"> Doctor</a>
                                 </li>
                                 <li>
                                     <a href="icons.html"> Consulta</a>
@@ -133,16 +132,54 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Control de expedientes - Selecciona una opción</h1>
+                    <h1 class="page-header">Alta</h1>
+                </div>
+                <!-- /#tabla -->
+                <div>
+                    <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Alta de pacientes
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form" method="POST">
+                                        <div class="form-group">
+                                            <label>Nombre</label>
+                                            <input type="text" name="nombre" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Apellido Paterno</label>
+                                            <input type="text" name="apellidopaterno" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Apellido Materno</label>
+                                            <input type="text" name="apellidomaterno" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Edad</label>
+                                            <input type="text" name="edad" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Direccion</label>
+                                            <input type="text" name="direccion" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Peso</label>
+                                            <input type="text" name="peso" class="form-control">
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Enviar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
         </div>
-        <!-- /#page-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-
+        
+    
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
 
@@ -159,7 +196,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-
 </body>
 
 </html>
+

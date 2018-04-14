@@ -12,7 +12,7 @@ package Dao;
 public class Doctor {
     private int iddoctor, idhospital;
     private float salario;
-    private String titulo, nombre, apellidopaterno, apellidomaterno;
+    private String titulo, nombre, apellidopaterno, apellidomaterno, nombrehospital;
 
     public int getIddoctor() {
         return iddoctor;
@@ -20,6 +20,14 @@ public class Doctor {
 
     public void setIddoctor(int iddoctor) {
         this.iddoctor = iddoctor;
+    }
+
+    public String getNombrehospital() {
+        return nombrehospital;
+    }
+
+    public void setNombrehospital(String nombrehospital) {
+        this.nombrehospital = nombrehospital;
     }
 
     public int getIdhospital() {

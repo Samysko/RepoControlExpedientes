@@ -42,6 +42,8 @@ public class Servlet extends HttpServlet {
         String pagina=request.getParameter("pagina");
         if(pagina.equals("login")){
             login(request, response);
+        }else if(pagina.equals("altadoctor")){
+            altadoctor(request, response);
         }
         
     }
@@ -123,6 +125,39 @@ public class Servlet extends HttpServlet {
             e.printStackTrace();
         }
 
+    }
+
+    private void altadoctor(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException{
+        System.out.println("estás dentro de alta doctor servlet");
+        response.setContentType("text/html");
+        try {
+            PrintWriter out=response.getWriter();
+            DoctorDao docdao = new DoctorDao();
+            
+            boolean flag = false;
+
+            String nombre = request.getParameter("nombre");
+            String apellidopaterno = request.getParameter("apellidopaterno");
+            String apellidomaterno = request.getParameter("apellidomaterno");
+            String titulo = request.getParameter("titulo");
+            Float salario = Float.parseFloat(request.getParameter("salario"));
+            int idhospital = Integer.parseInt(request.getParameter("idhospital"));
+            
+            Doctor doctor = new Doctor();
+            
+            doctor.setNombre(nombre);
+            doctor.setApellidopaterno(apellidopaterno);
+            doctor.setApellidomaterno(apellidomaterno);
+            doctor.setTitulo(titulo);
+            doctor.setSalario(salario);
+            doctor.setIdhospital(idhospital);
+            
+            docdao.alta(doctor);
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

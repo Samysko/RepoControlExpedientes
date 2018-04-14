@@ -23,7 +23,9 @@ public class ExpedienteClinicoDao implements Dao{
         {
             Connection c=new DataSource().getConexion();
             String sql="select ec.idpaciente, ec.diagnosticomedico, ec.fechadeexaminacion, "
-                    + "ec.iddoctor, ec.idhospital, ec.idexpedienteclinico from expedienteclinico ec "
+                    + "ec.iddoctor, ec.idhospital, ec.idexpedienteclinico, p.nombre nombrepa, "
+                    + "d.nombre nombredoc, h.nombre nombrehos "
+                    + "from expedienteclinico ec "
                     + "join paciente p on ec.idpaciente = p.idpaciente "
                     + "join doctor d on d.iddoctor = ec.iddoctor "
                     + "join hospital h on h.idhospital = ec.idhospital";
@@ -39,6 +41,10 @@ public class ExpedienteClinicoDao implements Dao{
                 expedienteclinico.setIddoctor(r.getInt("iddoctor"));
                 expedienteclinico.setIdhospital(r.getInt("idhospital"));
                 expedienteclinico.setIdexpedienteclinico(r.getInt("idexpedienteclinico"));
+                expedienteclinico.setNombredoctor(r.getString("nombredoc"));
+                expedienteclinico.setNombrehospital(r.getString("nombrehos"));
+                expedienteclinico.setNombrepaciente(r.getString("nombrepa"));
+                
                 lista.add(expedienteclinico);
             }
             r.close();

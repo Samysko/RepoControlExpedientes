@@ -8,7 +8,7 @@ package Dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  *
@@ -51,7 +51,37 @@ public class DoctorDao implements Dao{
 
     @Override
     public boolean alta(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       boolean b = false;
+       try{
+       Connection c = new DataSource().getConexion();
+       
+       String sql="insert into doctor(nombre, apellidopaterno, apellidomaterno, titulo, "
+               + "salario, idhospital) values(?, ?, ?, ?, ?, ?)";
+       
+       PreparedStatement ps=c.prepareStatement(sql);
+       
+       Doctor doctor=(Doctor)o;
+       
+       ps.setString(1, doctor.getNombre());
+       ps.setString(2, doctor.getApellidopaterno());
+       ps.setString(3, doctor.getApellidomaterno());
+       ps.setString(4, doctor.getTitulo());
+       ps.setFloat(5, doctor.getSalario());
+       ps.setInt(6, doctor.getIdhospital());
+       
+       int r= ps.executeUpdate();
+       
+       if(r>0){
+           b=true;
+       }
+           ps.close();
+           c.close();
+           
+           
+       }catch(Exception x){
+           x.printStackTrace();
+       }
+       return b;
     }
     
 }
