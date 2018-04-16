@@ -53,7 +53,7 @@ public class UsuariosDelSistemaDao implements Dao{
        try{
        Connection c = new DataSource().getConexion();
        
-       String sql="insert into usuariosdelsistema(usuario contraseña) values(?, ?)";
+       String sql="insert into usuariosdelsistema(idusuariosdelsistema, contraseña) values(?, ?)";
        
        PreparedStatement ps=c.prepareStatement(sql);
        
