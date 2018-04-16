@@ -8,8 +8,6 @@ package Servlet;
 import Dao.UsuariosDelSistema;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,6 +42,14 @@ public class Servlet extends HttpServlet {
             login(request, response);
         }else if(pagina.equals("altadoctor")){
             altadoctor(request, response);
+        }else if(pagina.equals("altapaciente")){
+            altapaciente(request, response);
+        }else if(pagina.equals("altahospital")){
+            altahospital(request, response);
+        }else if(pagina.equals("altausuariosdelsistema")){
+            altausuariosdelsistema(request, response);
+        }else if(pagina.equals("altaexpedienteclinico")){
+            altaexpedienteclinico(request, response);
         }
         
     }
@@ -155,9 +161,133 @@ public class Servlet extends HttpServlet {
             
             docdao.alta(doctor);
             
+            response.sendRedirect("pages/AltaDoctor.jsp");
+            
         }catch(Exception e){
             e.printStackTrace();
         }
     }
 
+    private void altapaciente(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("estás dentro de alta paciente servlet");
+        response.setContentType("text/html");
+        try {
+            PrintWriter out=response.getWriter();
+            PacienteDao pacientedao = new PacienteDao();
+            
+            boolean flag = false;
+
+            String nombre = request.getParameter("nombre");
+            String apellidopaterno = request.getParameter("apellidopaterno");
+            String apellidomaterno = request.getParameter("apellidomaterno");
+            int edad = Integer.parseInt(request.getParameter("edad"));
+            String direccion = request.getParameter("direccion");
+            float peso = Float.parseFloat(request.getParameter("peso"));
+            
+            Paciente paciente = new Paciente();
+            
+            paciente.setNombre(nombre);
+            paciente.setApellidopaterno(apellidopaterno);
+            paciente.setApellidomaterno(apellidomaterno);
+            paciente.setEdad(edad);
+            paciente.setDireccion(direccion);
+            paciente.setPeso(peso);
+            
+            pacientedao.alta(paciente);
+            
+            response.sendRedirect("pages/AltaPaciente.jsp");
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void altahospital(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("estás dentro de alta hospital servlet");
+        response.setContentType("text/html");
+        try {
+            PrintWriter out=response.getWriter();
+            HospitalDao pacientedao = new HospitalDao();
+            
+            boolean flag = false;
+
+            String nombre = request.getParameter("nombre");
+            String direccion = request.getParameter("direccion");
+            
+            Hospital hospital = new Hospital();
+            
+            hospital.setNombre(nombre);
+            hospital.setDireccion(direccion);
+            
+            pacientedao.alta(hospital);
+            
+            response.sendRedirect("pages/AltaHospital.jsp");
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+
+    private void altausuariosdelsistema(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("estás dentro de alta de usuarios del sistema servlet");
+        response.setContentType("text/html");
+        try {
+            PrintWriter out=response.getWriter();
+            UsuariosDelSistemaDao usuariosdelsistemadao = new UsuariosDelSistemaDao();
+            
+            boolean flag = false;
+
+            String idusuario = request.getParameter("idusuario");
+            String contraseña = request.getParameter("contrasena");
+            
+            UsuariosDelSistema usuariodelsistema = new UsuariosDelSistema();
+            
+            usuariodelsistema.setIdusuariosdelsistema(idusuario);
+            usuariodelsistema.setContraseña(contraseña);
+            
+            usuariosdelsistemadao.alta(usuariodelsistema);
+            
+            response.sendRedirect("pages/AltaUsuariosDelSistema.jsp");
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void altaexpedienteclinico(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("estás dentro de alta expediente clinico servlet");
+        response.setContentType("text/html");
+        try {
+            PrintWriter out=response.getWriter();
+            ExpedienteClinicoDao expedienteclinicodao = new ExpedienteClinicoDao();
+            
+            boolean flag = false;
+
+            String fechadeexaminacion = request.getParameter("fechaex");
+            String diagnosticomedico = request.getParameter("diagnosticomedico");
+            int idpaciente = Integer.parseInt(request.getParameter("idpaciente"));
+            int iddoctor = Integer.parseInt(request.getParameter("iddoctor"));
+            int idhosptial = Integer.parseInt(request.getParameter("idhospital"));
+            
+            System.out.println(fechadeexaminacion + " " + diagnosticomedico + " " +
+                    idpaciente + " " + iddoctor + " " + idhosptial);
+            
+            ExpedienteClinico expedienteclinico = new ExpedienteClinico();
+            
+            expedienteclinico.setFechadeexaminacion(fechadeexaminacion);
+            expedienteclinico.setDiagnosticomedico(diagnosticomedico);
+            expedienteclinico.setIdpaciente(idpaciente);
+            expedienteclinico.setIddoctor(iddoctor);
+            expedienteclinico.setIdhospital(idhosptial);
+            
+            expedienteclinicodao.alta(expedienteclinico);
+            
+            response.sendRedirect("pages/AltaPaciente.jsp");
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
 }

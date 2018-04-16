@@ -54,7 +54,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Control de Expedientes</a>
+                <a class="navbar-brand" href="PaginaPrincipal.jsp">Control de Expedientes</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -102,22 +102,19 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Alta<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html"> Usuario del sistema</a>
+                                    <a href="AltaUsuariosDelSistema.jsp"> Usuario del sistema</a>
                                 </li>
                                 <li>
-                                    <a href="buttons.html"> Paciente</a>
+                                    <a href="AltaPaciente.jsp"> Paciente</a>
                                 </li>
                                 <li>
-                                    <a href="notifications.html"> Hospital</a>
+                                    <a href="AltaHospital.jsp"> Hospital</a>
                                 </li>
                                 <li>
-                                    <a href="CnsultaDoctor.jsp"> Doctor</a>
+                                    <a href="AltaDoctor.jsp"> Doctor</a>
                                 </li>
                                 <li>
-                                    <a href="icons.html"> Consulta</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html"> Expediente clíinico</a>
+                                    <a href="AltaExpedienteClinico.jsp"> Expediente clíinico</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

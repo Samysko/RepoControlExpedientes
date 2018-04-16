@@ -49,7 +49,32 @@ public class UsuariosDelSistemaDao implements Dao{
 
     @Override
     public boolean alta(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean b = false;
+       try{
+       Connection c = new DataSource().getConexion();
+       
+       String sql="insert into usuariosdelsistema(usuario contraseña) values(?, ?)";
+       
+       PreparedStatement ps=c.prepareStatement(sql);
+       
+       UsuariosDelSistema usuariosdelsistema=(UsuariosDelSistema)o;
+       
+       ps.setString(1, usuariosdelsistema.getIdusuariosdelsistema());
+       ps.setString(2, usuariosdelsistema.getContraseña());;
+       
+       int r= ps.executeUpdate();
+       
+       if(r>0){
+           b=true;
+       }
+           ps.close();
+           c.close();
+           
+           
+       }catch(Exception x){
+           x.printStackTrace();
+       }
+       return b;
     }
     
 }

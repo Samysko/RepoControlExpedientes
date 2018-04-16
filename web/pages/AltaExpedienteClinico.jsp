@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ConsultaUsuariosDelSistema
-    Created on : 3/04/2018, 10:17:26 PM
+    Document   : AltaExpedienteClinico
+    Created on : 13/04/2018, 09:31:55 PM
     Author     : TechM User
 --%>
 
@@ -9,7 +9,6 @@
 <html lang="es">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,7 +42,7 @@
 </head>
 
 <body>
-    <%@taglib uri="/WEB-INF/tld/ConsultaUsuariosDelSistema" prefix="c" %>
+    <%@taglib uri="/WEB-INF/tld/ConsultaSelect" prefix="c" %>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -130,36 +129,51 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Consulta Usuarios del Sistema</h1>
+                    <h1 class="page-header">Alta</h1>
                 </div>
                 <!-- /#tabla -->
                 <div>
-                    <div class="col-lg-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Usuarios del Sistema
-                            </div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Usuario</th>
-                                                <th>Contraseña</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:ConsultaUsuariosDelSistema/>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.table-responsive -->
-                            </div>
-                            <!-- /.panel-body -->
+                    <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Alta de Expediente Clinico
                         </div>
-                        <!-- /.panel -->
-                    </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form" action='../servlet' method='POST'>
+                                        <input type="hidden" name="pagina" value="altaexpedienteclinico">
+                                        <div class="form-group">
+                                            <label>Fecha De Examinacion (AAAA-MM-DD)</label>
+                                            <input type="text" name="fechaex" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Diagnóstico medico</label>
+                                            <input type="text" name="diagnosticomedico" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Selecciona paciente designado</label>
+                                            <select multiple class="form-control" name="idpaciente">
+                                                <c:ConsultaSelect tabla="paciente"/>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Selecciona doctor designado</label>
+                                            <select multiple class="form-control" name="iddoctor">
+                                                <c:ConsultaSelect tabla="doctor"/>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Selecciona hospital designado</label>
+                                            <select multiple class="form-control" name="idhospital">
+                                                <c:ConsultaSelect tabla="hospital"/>
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Enviar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
