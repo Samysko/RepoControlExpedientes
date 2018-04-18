@@ -12,6 +12,15 @@ package Dao;
 public class UsuariosDelSistema {
     private String idusuariosdelsistema;
     private String contraseña;
+    private String iniciosesion;
+
+    public String getIniciosesion() {
+        return iniciosesion;
+    }
+
+    public void setIniciosesion(String iniciosesion) {
+        this.iniciosesion = iniciosesion;
+    }
 
     public String getIdusuariosdelsistema() {
         return idusuariosdelsistema;

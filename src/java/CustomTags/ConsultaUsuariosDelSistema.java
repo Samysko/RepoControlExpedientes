@@ -43,7 +43,7 @@ public class ConsultaUsuariosDelSistema extends TagSupport{
                     out.println("<tr>");
                     out.println("<td>" + usuariosdelsistema.getIdusuariosdelsistema()+ "</td>");
                     out.println("<td>" + usuariosdelsistema.getContraseña()+ "</td>");
-                    out.println("</tr>");
+                    out.println("<td>" + usuariosdelsistema.getIniciosesion()+ "</td>");
     //            <tr>
     //                <td>1</td>
     //                <td>Mark</td>

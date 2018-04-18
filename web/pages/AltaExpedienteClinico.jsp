@@ -136,7 +136,7 @@
                     <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Alta de Expediente Clinico
+                            Alta expediente clinico
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -149,7 +149,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Diagnóstico medico</label>
-                                            <input type="text" name="diagnosticomedico" class="form-control">
+                                            <textarea class="form-control" rows="3" name="diagnosticomedico"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Selecciona paciente designado</label>

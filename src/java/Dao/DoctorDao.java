@@ -22,20 +22,20 @@ public class DoctorDao implements Dao{
         try
         {
             Connection c=new DataSource().getConexion();
-            String sql="select * from doctor";
+            String sql="select * from doctor d join hospital h on d.idhospital = h.idhospital";
             PreparedStatement ps=c.prepareStatement(sql);
             ResultSet r=ps.executeQuery();
             lista=new ArrayList();
             while(r.next())
             {
                 Doctor doctor = new Doctor();
-                doctor.setIddoctor(Integer.parseInt(r.getString("iddoctor")));
-                doctor.setNombre(r.getString("nombre"));
-                doctor.setSalario(r.getFloat("salario"));
-                doctor.setApellidomaterno(r.getString("apellidomaterno"));
-                doctor.setApellidopaterno(r.getString("apellidopaterno"));
-                doctor.setTitulo(r.getString("titulo"));
-                doctor.setIdhospital(r.getInt("idhospital"));
+                doctor.setIddoctor(Integer.parseInt(r.getString(1)));
+                doctor.setNombre(r.getString(2));
+                doctor.setSalario(r.getFloat(3));
+                doctor.setApellidomaterno(r.getString(5));
+                doctor.setApellidopaterno(r.getString(6));
+                doctor.setTitulo(r.getString(4));
+                doctor.setNombrehospital(r.getString(9));
                 lista.add(doctor);
             }
             r.close();

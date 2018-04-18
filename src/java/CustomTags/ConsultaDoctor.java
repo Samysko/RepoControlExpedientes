@@ -41,7 +41,7 @@ public class ConsultaDoctor extends TagSupport{
                     out.println("<td>" + doctor.getApellidomaterno() + "</td>");
                     out.println("<td>" + doctor.getTitulo()+ "</td>");
                     out.println("<td>" + doctor.getSalario()+ "</td>");
-                    out.println("<td>" + doctor.getIdhospital()+ "</td>");
+                    out.println("<td>" + doctor.getNombrehospital()+ "</td>");
                     out.println("</tr>");
     //            <tr>
     //                <td>1</td>

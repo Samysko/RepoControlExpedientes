@@ -136,7 +136,7 @@
                     <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Alta de Doctor
+                            Alta doctor
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -145,7 +145,7 @@
                                         <input type="hidden" name="pagina" value="altadoctor">
                                         <div class="form-group">
                                             <label>Nombre</label>
-                                            <input type="text" name="nombre" class="form-control">
+                                            <input id="nombreDoctor" type="text" name="nombre" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>Apellido Paterno</label>
@@ -196,6 +196,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+
 </body>
 
 </html>

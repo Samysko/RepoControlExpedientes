@@ -135,7 +135,7 @@
                     <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Alta de Usuarios del sistema
+                            Alta usuario del sistema
                         </div>
                         <div class="panel-body">
                             <div class="row">

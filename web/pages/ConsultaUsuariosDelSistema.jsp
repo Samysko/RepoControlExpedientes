@@ -130,23 +130,24 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Consulta Usuarios del Sistema</h1>
+                    <h1 class="page-header">Consulta</h1>
                 </div>
                 <!-- /#tabla -->
-                <div>
-                    <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Usuarios del Sistema
+                                Usuario del sistema
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table width="100%" class="table table-striped table-bordered table-hover" id="tabla">
                                         <thead>
                                             <tr>
                                                 <th>Usuario</th>
                                                 <th>Contraseña</th>
+                                                <th>Ultimo incio de sesión</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -182,6 +183,18 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+    
+    <!-- DataTables JavaScript -->
+    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#tabla').DataTable({
+            responsive: true
+        });
+    });
+    </script>
 </body>
 
 </html>

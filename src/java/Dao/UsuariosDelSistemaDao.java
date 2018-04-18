@@ -8,7 +8,10 @@ package Dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -32,6 +35,7 @@ public class UsuariosDelSistemaDao implements Dao{
                 
                 usuario.setIdusuariosdelsistema(r.getString("idusuariosdelsistema"));
                 usuario.setContraseña(r.getString("contraseña"));
+                usuario.setIniciosesion(r.getString("iniciosesion"));
                 
                 lista.add(usuario);
             }
@@ -75,6 +79,25 @@ public class UsuariosDelSistemaDao implements Dao{
            x.printStackTrace();
        }
        return b;
+    }
+    
+    public void inicioSesion(String usuarioactual){
+        System.out.println(usuarioactual + " se recibio al metodo inicio sesion");
+        try {
+            Connection c = new DataSource().getConexion();
+       
+            String sql="update usuariosdelsistema set iniciosesion = now() "
+                       + "where idusuariosdelsistema = ?";
+       
+            PreparedStatement ps=c.prepareStatement(sql);
+            
+            ps.setString(1, usuarioactual);
+            
+            ps.executeUpdate();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuariosDelSistemaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

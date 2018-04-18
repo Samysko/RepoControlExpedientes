@@ -117,8 +117,11 @@ public class Servlet extends HttpServlet {
                         usu.getIdusuariosdelsistema()+ " " + usu.getContraseña());
                 
                 if(usu.getIdusuariosdelsistema().equals(usuario) && usu.getContraseña().equals(contraseña)){
-                    response.sendRedirect("pages/PaginaPrincipal.jsp");
+                    System.out.println(usu.getIdusuariosdelsistema());
+                    usudao.inicioSesion(usu.getIdusuariosdelsistema());
                     flag = true;
+                    response.sendRedirect("pages/PaginaPrincipal.jsp");
+                    
                 }
                 
             }
